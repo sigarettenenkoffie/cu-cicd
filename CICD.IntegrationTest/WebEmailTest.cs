@@ -10,12 +10,12 @@ namespace CICD.IntegrationTest
     public class WebEmailTest
     {
         // lokale uitvoering
-        public const string mvcAppRoot = "http://localhost:8080"; 
-        public const string mailHogApiV2Root = "http://localhost:8025/api/v2";
+        //public const string mvcAppRoot = "http://localhost:8080";
+        //public const string mailHogApiV2Root = "http://localhost:8025/api/v2";
 
         // uitvoering in Docker container
-        //public const string mvcAppRoot = "http://mvcapp";
-        //public const string mailHogApiV2Root = "http://mail:8025/api/v2";
+        public const string mvcAppRoot = "http://mvcapp";
+        public const string mailHogApiV2Root = "http://mail:8025/api/v2";
 
         [Fact]
         public async Task SendEmailWithNames_IsFromGenerator()
