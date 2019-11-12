@@ -6,4 +6,4 @@ RUN dotnet restore
 RUN dotnet build
 
 COPY . . 
-ENTRYPOINT [ "dotnet", "test" ]
+ENTRYPOINT [ "dotnet", "test", "--verbosity=normal" ]
