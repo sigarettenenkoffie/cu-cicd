@@ -15,9 +15,11 @@ RUN dotnet restore ./CICD.Web/*.csproj
 # copy source code
 COPY . . 
 
+ENV TEAMCITY_PROJECT_NAME = ${TEAMCITY_PROJECT_NAME}  # visualize test results in Teamcity
+
 # test stage
 # run separate: cached layer if tests success
-RUN dotnet test CICD.Test/CICD.Test.csproj
+RUN dotnet test CICD.Test/CICD.Test.csproj --verbosity=normal 
 
 # build in release mode to folder publish
 RUN dotnet publish CICD.Web/CICD.Web.csproj -c Release -o /publish 

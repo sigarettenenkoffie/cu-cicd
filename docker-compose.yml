@@ -13,3 +13,5 @@ services:
   integration:
     image: my-registry:55000/cicd:integration
     build: ./CICD.IntegrationTest # dockerfile voor deze image bevindt zich in de subfolder
+    environment:
+      - TEAMCITY_PROJECT_NAME
