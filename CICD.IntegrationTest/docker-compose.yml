@@ -2,16 +2,11 @@
 services:
 
   mvcapp:
-    image: cicd:mail
-    #ports:
-    #  - "8080:80"
+    image: my-registry:55000/cia:cid-${MVCAPP_BUILD_NUMBER}
   mail:
     image: mailhog/mailhog
-    #ports:
-    #  - "8025:8025" #webinterface for mail
-    #  - "1025:1025" #smtp deze poort openzetten als mvc app vanuit lokaal OS start (niet in container)
   integration:
-    image: my-registry:55000/cicd:integration
-    build: ./CICD.IntegrationTest # dockerfile voor deze image bevindt zich in de subfolder
+    image: my-registry:55000/cicd:integration-${BUILD_NUMBER}
+    build: . 
     environment:
       - TEAMCITY_PROJECT_NAME
