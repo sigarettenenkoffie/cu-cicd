@@ -39,7 +39,7 @@ namespace CICD.Web.Controllers
             var message = new MimeMessage();
             message.From.Add(new MailboxAddress("CICD Web Application", "cicdsolution@howestgp.be"));
             message.To.Add(new MailboxAddress("Student", "student@sumwanted.com"));
-            message.Subject = "Your calculated Sum, Siegje!!!";
+            message.Subject = "Your calculated Sum";
             message.Body = new TextPart("plain")
             {
                 Text = $"Hello, your calculation result: sum of {content.Input} = {content.Sum} " +
